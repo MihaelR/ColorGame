@@ -1,15 +1,9 @@
-var colors = [  "rgb(255, 0, 0)",          //made 6 colors for each square
-                "rgb(255, 255, 0)",
-                "rgb(0, 255, 0)",
-                "rgb(0, 255, 255)",
-                "rgb(0, 0, 255)",
-                "rgb(255, 0, 255)"
-            ];
-
+var colors=generateRandomColors(6);
 var squares = document.querySelectorAll(".square");       //select squares
 var pickedColor = pickColor();                              //pick 1 color,
 var colorDisplay=document.getElementById("colorDisplay");  //select in h1 Rgb
 var messageDisplay=document.querySelector("#message");     //under h1 try again/correct
+                         //colors from random colors func, it willl generate 6 colors
 
 colorDisplay.textContent=pickedColor;                          //in h1 text content = picked color
 
@@ -38,7 +32,7 @@ for (var i=0; i <squares.length; i++) {                     //color squares
 
 
 
-//function when u pick right color change all squared in this color
+//1.function when u pick right color change all squared in this color
 function changeColors(color)  {
 //loop through all squares
     for (var i=0; i<squares.length; i++){
@@ -49,7 +43,11 @@ function changeColors(color)  {
 
 }
 
-//random color funtcion
+
+
+
+
+//4.give to every square different random color
 function pickColor() {
 
 var random = Math.floor(Math.random() * colors.length);     //picks random number od o do array lenght,3 ili 6
@@ -57,4 +55,29 @@ return colors[random];      //return color on that place in array colors[3]=yell
 }
 
 
+//3.RANDOM COLOR FUNC-generate 1 random color
+function randomColor() {
+    //get red 0-255
+    var r = Math.floor(Math.random()*256);
+    //get green 0-255
+    var g = Math.floor(Math.random()*256);
+    //get blue 0-255
+    var b = Math.floor(Math.random()*256);
+    //putit together
+    return "rgb(" + r + "," + g + "," + b + ")";
+}
 
+//2.RANDOM COLOR PUSH INTO ARRAY
+function generateRandomColors(num){
+//make an array
+    var arr=[]
+//repeat num times
+    for (var i= 0; i<num ; i++) {
+        //get random color and push into arr
+        arr.push(randomColor())
+
+}
+//return that array
+return arr;
+
+}
