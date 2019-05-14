@@ -22,6 +22,7 @@ easyBtn.addEventListener("click", function(){
         }
         else {squares[i].style.display="none";                      //hide last 3 squares
         }
+        h1.style.backgroundColor= "steelblue";
     }
 });
 
@@ -37,6 +38,7 @@ hardBtn.addEventListener("click", function(){
          squares[i].style.backgroundColor=colors[i];         //change all squares colors
         
          squares[i].style.display="block";                      //show last 3 squares
+         h1.style.backgroundColor= "steelblue";
         }
     });
 
@@ -54,7 +56,7 @@ resetButton.addEventListener("click", function(){
     for (var i=0; i<squares.length; i++){
         squares[i].style.backgroundColor=colors[i];
     }
-    h1.style.backgroundColor= "#232323";
+    h1.style.backgroundColor= "steelblue";
 })
 
 colorDisplay.textContent=pickedColor;                          //in h1 text content = picked color
